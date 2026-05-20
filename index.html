@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amit Kumar | Java Developer</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0f172a;
+      color:#f8fafc;
+      line-height:1.7;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:1000;
+      background:rgba(15,23,42,0.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:700;
+      color:#38bdf8;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:25px;
+    }
+
+    .nav-links a{
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#38bdf8;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding-top:100px;
+      background:
+      linear-gradient(rgba(15,23,42,0.88),rgba(15,23,42,0.92)),
+      url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop') center/cover;
+    }
+
+    .hero-content{
+      max-width:700px;
+    }
+
+    .hero h1{
+      font-size:60px;
+      line-height:1.2;
+      margin-bottom:15px;
+    }
+
+    .hero h1 span{
+      color:#38bdf8;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#cbd5e1;
+      margin-bottom:30px;
+    }
+
+    .hero-btns{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 28px;
+      border-radius:8px;
+      font-weight:600;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:#38bdf8;
+      color:#0f172a;
+    }
+
+    .btn-primary:hover{
+      background:#0ea5e9;
+      transform:translateY(-2px);
+    }
+
+    .btn-outline{
+      border:2px solid #38bdf8;
+      color:#38bdf8;
+    }
+
+    .btn-outline:hover{
+      background:#38bdf8;
+      color:#0f172a;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:90px 0;
+    }
+
+    .section-title{
+      font-size:38px;
+      margin-bottom:15px;
+      text-align:center;
+    }
+
+    .section-sub{
+      text-align:center;
+      color:#94a3b8;
+      margin-bottom:60px;
+    }
+
+    /* ABOUT */
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .card{
+      background:#1e293b;
+      padding:30px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    /* SKILLS */
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .skill-box h3{
+      margin-bottom:15px;
+      color:#38bdf8;
+    }
+
+    .skill-box ul{
+      list-style:none;
+    }
+
+    .skill-box li{
+      margin-bottom:10px;
+      color:#cbd5e1;
+    }
+
+    /* EXPERIENCE */
+
+    .timeline{
+      position:relative;
+      margin-top:30px;
+    }
+
+    .timeline::before{
+      content:'';
+      position:absolute;
+      left:20px;
+      top:0;
+      width:2px;
+      height:100%;
+      background:#38bdf8;
+    }
+
+    .timeline-item{
+      position:relative;
+      padding-left:60px;
+      margin-bottom:40px;
+    }
+
+    .timeline-item::before{
+      content:'';
+      position:absolute;
+      left:11px;
+      top:5px;
+      width:18px;
+      height:18px;
+      background:#38bdf8;
+      border-radius:50%;
+    }
+
+    .timeline-item h3{
+      color:#38bdf8;
+      margin-bottom:5px;
+    }
+
+    .timeline-item span{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+    }
+
+    .project-card{
+      background:#1e293b;
+      padding:25px;
+      border-radius:18px;
+      transition:0.3s;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .project-card:hover{
+      transform:translateY(-8px);
+      border-color:#38bdf8;
+    }
+
+    .project-card h3{
+      margin-bottom:15px;
+      color:#38bdf8;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      text-align:center;
+    }
+
+    .contact p{
+      margin-bottom:15px;
+      color:#cbd5e1;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px 0;
+      border-top:1px solid rgba(255,255,255,0.08);
+      color:#94a3b8;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .about-grid{
+        grid-template-columns:1fr;
+      }
+
+      .nav-links{
+        gap:15px;
+        font-size:14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="container nav-content">
+      <div class="logo">Amit Kumar</div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container hero-content">
+
+      <h1>
+        Hi, I'm <span>Amit Kumar</span><br>
+        Java Developer
+      </h1>
+
+      <p>
+        Experienced Java & Backend Developer with 7+ years of expertise in scalable applications,
+        Spring Boot, REST APIs, Microservices, Firebase, and AI-integrated systems.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="Amit_Kumar_Java_Developer_Resume.docx" class="btn btn-outline" download>
+          Download Resume
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+    <div class="container">
+
+      <h2 class="section-title">About Me</h2>
+      <p class="section-sub">
+        Passionate developer building scalable backend and enterprise solutions.
+      </p>
+
+      <div class="about-grid">
+
+        <div class="card">
+          <h3>Professional Summary</h3>
+          <br>
+          <p>
+            Results-driven Java Developer with strong experience in backend systems,
+            API integrations, Microservices, and scalable architecture development.
+            Skilled in Java, Spring Boot, MySQL, Firebase, and AI integration.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Quick Info</h3>
+          <br>
+
+          <p><strong>Experience:</strong> 7+ Years</p>
+          <p><strong>Specialization:</strong> Java Backend Development</p>
+          <p><strong>Email:</strong> amitsaxena383828@gmail.com</p>
+          <p><strong>Phone:</strong> +91 8860486582</p>
+          <p><strong>Location:</strong> India</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+    <div class="container">
+
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-sub">
+        Technologies and tools I work with
+      </p>
+
+      <div class="skills-grid">
+
+        <div class="card skill-box">
+          <h3>Languages</h3>
+
+          <ul>
+            <li>Java</li>
+            <li>Kotlin</li>
+            <li>Python</li>
+            <li>C / C++</li>
+          </ul>
+        </div>
+
+        <div class="card skill-box">
+          <h3>Backend</h3>
+
+          <ul>
+            <li>Spring Boot</li>
+            <li>REST APIs</li>
+            <li>Microservices</li>
+            <li>Firebase</li>
+          </ul>
+        </div>
+
+        <div class="card skill-box">
+          <h3>Database</h3>
+
+          <ul>
+            <li>MySQL</li>
+            <li>SQLite</li>
+            <li>Firestore</li>
+            <li>Realtime Database</li>
+          </ul>
+        </div>
+
+        <div class="card skill-box">
+          <h3>Tools</h3>
+
+          <ul>
+            <li>Git</li>
+            <li>Maven</li>
+            <li>Gradle</li>
+            <li>Postman</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <section id="experience">
+    <div class="container">
+
+      <h2 class="section-title">Experience</h2>
+      <p class="section-sub">
+        My professional journey
+      </p>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h3>Senior Software Engineer - Delta India</h3>
+          <span>Jul 2023 – Mar 2025</span>
+
+          <p>
+            Developed scalable backend-integrated applications using Java,
+            REST APIs, and AI-powered modules.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Senior Software Engineer - Beelabs Technology</h3>
+          <span>Apr 2023 – Jun 2023</span>
+
+          <p>
+            Worked on enterprise backend systems and API integrations.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Senior Software Engineer - Virtual Diamond Boutique</h3>
+          <span>Sep 2022 – Dec 2022</span>
+
+          <p>
+            Developed marketplace features and integrated REST APIs.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Software Engineer - Terasol Technologies</h3>
+          <span>Jun 2021 – Apr 2022</span>
+
+          <p>
+            Developed and maintained backend-connected applications.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+    <div class="container">
+
+      <h2 class="section-title">Projects</h2>
+
+      <p class="section-sub">
+        Some of my featured work
+      </p>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <h3>Mira – AI Therapy Platform</h3>
+
+          <p>
+            AI-powered therapy chat application integrated with OpenAI and Gemini APIs.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>UBLAMP – AI EdTech Platform</h3>
+
+          <p>
+            Built scalable AI-enabled educational features and backend integrations.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>HandOver Delivery App</h3>
+
+          <p>
+            Food and grocery delivery platform with secure payment integration.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>Sova Security</h3>
+
+          <p>
+            Electronic guard tour and security management platform.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+    <div class="container contact">
+
+      <h2 class="section-title">Contact</h2>
+
+      <p>
+        Interested in working together or hiring me?
+      </p>
+
+      <br>
+
+      <a href="mailto:amitsaxena383828@gmail.com?subject=Java%20Developer%20Opportunity"
+         class="btn btn-primary">
+        Send Email
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container">
+      © 2026 Amit Kumar | Java Developer Portfolio
+    </div>
+  </footer>
+
+</body>
+</html>
